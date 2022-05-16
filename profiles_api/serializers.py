@@ -1,5 +1,7 @@
 from rest_framework import serializers
+from django.db.models import fields
 from profiles_api import models
+from .models import Medicamentos
 
 
 class HelloSerializer(serializers.Serializer):
@@ -42,3 +44,8 @@ class ProfileFeedItemSerializer(serializers.ModelSerializer):
         model = models.ProfileFeedItem
         fields = ('id', 'user_profile', 'status_text', 'created_on')
         extra_kwargs = {'user_profile': {'read_only': True}}
+
+class MedicamentosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Medicamentos
+        fields = ('nombre', 'sub_categoria', 'cantidad')

@@ -68,3 +68,12 @@ class ProfileFeedItem(models.Model):
     def __str__(self):
         """Retornar el nombre como cadena"""
         return self.status_text
+
+class Medicamentos(models.Model):
+    """Modelo de medicamentos,"""
+    nombre = models.CharField(max_length=255)
+    sub_categoria = models.CharField(max_length=255)
+    cantidad = models.PositiveIntegerField()
+    def __str__(self) -> str:
+        return self.name
+
